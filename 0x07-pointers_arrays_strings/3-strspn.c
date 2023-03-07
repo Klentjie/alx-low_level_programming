@@ -6,30 +6,21 @@
  * @s: Pointer to the string to search
  * @accept: Pointer to the substring to search for
  *
- * Return: The number of bytes in the initial segment of `s` that consist of
- *         only bytes from `accept`.
+ * Return: 0
  */
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-	unsigned int n = 0;
-	int r;
+		int k;
 
-	while (*s)
-	{
-		for (r = 0; accept[r]; r++)
+		while (*s)
 		{
-			if (*s == accept[r])
+			for (k = 0; accept[k]; k++)
 			{
-				n++;
-				break;
+			if (*s == accept[k])
+			return (s);
 			}
-			else if (accept[r + 1] == '\0')
-			{
-				return (0);
-			}
-		}
 		s++;
-	}
+		}
 
-	return (n);
+	return ('\0');
 }
